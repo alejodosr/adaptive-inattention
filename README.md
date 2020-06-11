@@ -35,6 +35,13 @@ This framework has been validated with Imagent VID 2015 and a custom Multirotor 
 
 If you want to use your custom dataset, YOLO-style annotations can be used and `scripts/get_YOLO_shapes.py` has to be used to generate extra annotations.
 
+### Additional notes ###
+Every script has several options and parameters. These are some important ones:
+- For selecting MobileNetV2 backbone use `--backbone mobilenetv2` (if not included, by default MobileNetV1 is selected).
+- For MAV-VID dataset (or Yolo style dataset) use `--dataset_type yolo` (if not included, by default Imagenet VID 2015 dataset is selected).
+- For CPU evaluation use `--use_cuda False` (by default GPU is used if present)
+- Extended data augmentation is included for training (see article).  To disable it use `--crop_prob 0.0` or, conversely, you can increase the probability `0.x` of including a synthetic feature map in the batch with `--crop_prob 0.x`
+
 ## Training ##
 ### Train the Inattentional Model ###
 
@@ -62,10 +69,10 @@ or with MobileNetV2 backbone:
 ## Evaluation ##
 ### Evaluate Trained Model (with Random Policy) ###
 
-`CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy baseline --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --iter 3 --prob 0.5 --use_cuda True`
+`CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy baseline --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --iter 5 --prob 0.5 --use_cuda True`
 
 ### Evaluate Trained Model (with Inattentional Policy) ###
 
-``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --label_file /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 3 --lambda_0 1.2 --use_cuda True``
+``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --label_file /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 5 --lambda_0 1.2 --use_cuda True``
 
-## Acknowledgements ##
+## Acknowledgement ##
