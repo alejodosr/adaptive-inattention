@@ -67,15 +67,15 @@ or with MobileNetV2 backbone:
 `CUDA_VISIBLE_DEVICES=0 python train_rl_inattentional_policy.py --net lstm --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv`
 
 ## Evaluation ##
-### Evaluate Trained Model (with Random Policy) ###
+Evaluate Trained Model (with Random Policy)
 
 `CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy baseline --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --iter 5 --prob 0.5 --use_cuda True`
 
-### Evaluate Trained Model (with Inattentional Policy) ###
+Evaluate Trained Model (with Inattentional Policy)
 
 ``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 5 --lambda_0 1.2 --use_cuda True``
 
-### Evaluate only MobileNetV1/V2-SSDLite (only Feature extractor) ###
+Evaluate only MobileNetV1/V2-SSDLite (only Feature extractor)
 ``CUDA_VISIBLE_DEVICES=0 python evaluate.py --net backbone --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv``
 
 ## Acknowledgement ##
