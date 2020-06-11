@@ -22,7 +22,7 @@ import pathlib
 import cv2
 
 
-class HRMobileVOD(ptl.LightningModule):
+class InattModel(ptl.LightningModule):
     """
     Arguments:
         hparams : arguments for the construction of the model
@@ -36,7 +36,7 @@ class HRMobileVOD(ptl.LightningModule):
     """
 
     def __init__(self, hparams, logging=None):
-        super(HRMobileVOD, self).__init__()
+        super(InattModel, self).__init__()
 
         self.hparams = hparams
         self.logging = logging

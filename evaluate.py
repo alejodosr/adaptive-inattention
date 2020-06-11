@@ -8,7 +8,7 @@ args : dict
 dataset : ImagenetDataset (torch.utils.data.Dataset, For more info see datasets/vid_dataset.py)
 
 """
-from models.inatt_models_ptl import HRMobileVOD
+from models.inatt_models_ptl import InattModel
 from dataloaders.vid_dataset import ImagenetDataset
 from dataloaders.yolo_dataset import YOLODataset
 from config import mobilenetv1_ssd_config
@@ -88,7 +88,7 @@ if __name__ == '__main__':
         logging.info("Use Cuda.")
 
     # Load model
-    model = HRMobileVOD.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
+    model = InattModel.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
 
     model.eval()
     model = model.to(device)

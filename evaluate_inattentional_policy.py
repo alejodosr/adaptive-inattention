@@ -8,7 +8,7 @@ args : dict
 dataset : ImagenetDataset (torch.utils.data.Dataset, For more info see datasets/vid_dataset.py)
 
 """
-from models.inatt_models_ptl import HRMobileVOD
+from models.inatt_models_ptl import InattModel
 from dataloaders.data_preprocessing import TrainTransform, ValTransform, RandTransform
 from dataloaders.vid_dataset import ImagenetDataset
 from dataloaders.yolo_dataset import YOLODataset
@@ -22,7 +22,7 @@ from utils.metrics import *
 import cv2
 import os
 from stable_baselines import PPO2
-from rl.rl_env.inatt_env import HrmodEnv
+from rl.rl_env.inatt_env import InattEnv
 from rl.rl_agent.custom_policies import BaselinePolicy
 from stable_baselines.common.vec_env import DummyVecEnv, VecNormalize
 from dataloaders.transforms import preloaded_rng
@@ -98,7 +98,7 @@ if __name__ == '__main__':
         # Create and wrap the environment
         h_shape = (10, 10, 1024)  # Shape of the hidden state of the lstm network
         history_shape = 20  # Number of past actions to be tracked
-        env = HrmodEnv(args, h_shape=h_shape, history_shape=history_shape, is_test=True, dynamic_gamma=dynamic_lambda_0)
+        env = InattEnv(args, h_shape=h_shape, history_shape=history_shape, is_test=True, dynamic_gamma=dynamic_lambda_0)
         if dynamic_lambda_0:
             print("INFO: Gamma has been set to " + str(args.lambda_0))
             env.lambda_0 = args.lambda_0
@@ -162,7 +162,7 @@ if __name__ == '__main__':
         logging.info("Use Cuda.")
 
     # Load model
-    model = HRMobileVOD.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
+    model = InattModel.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
 
     # Initialize with pretrained
     initialize_model(model)

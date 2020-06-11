@@ -2,7 +2,7 @@ import gym
 from gym import spaces
 import pathlib
 
-from models.inatt_models_ptl import HRMobileVOD
+from models.inatt_models_ptl import InattModel
 from utils.metrics import *
 from utils.misc import sample_log_uniform
 from dataloaders.vid_dataset import ImagenetDataset
@@ -15,13 +15,13 @@ from utils.cropping_helper import *
 
 import os
 
-class HrmodEnv(gym.Env):
+class InattEnv(gym.Env):
     """Custom Environment that follows gym interface"""
     metadata = {'render.modes': ['human']}
 
     def __init__(self, args, logging=None, n_actions=2, h_shape=(10, 10, 1024), history_shape=20, is_test=False,
                  val_dataset=True, random_train=False, cache_dir='', dynamic_gamma=False):
-        super(HrmodEnv, self).__init__()
+        super(InattEnv, self).__init__()
         # Define action and observation space
         # They must be gym.spaces objects
         # Example when using discrete actions:
@@ -55,7 +55,7 @@ class HrmodEnv(gym.Env):
 
         if not self.is_test:
             # Load model
-            self.model = HRMobileVOD.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
+            self.model = InattModel.load_from_checkpoint(args.trained_model, tags_csv=args.tags_csv)
             self.model.eval()
             self.model = self.model.to(self.device)
 

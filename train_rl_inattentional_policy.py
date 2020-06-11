@@ -20,7 +20,7 @@ from stable_baselines import PPO2
 from stable_baselines.common.callbacks import BaseCallback
 
 from rl.rl_agent.custom_policies import CropPolicy, BaselinePolicy, CropPolicyYOTO
-from rl.rl_env.inatt_env import HrmodEnv
+from rl.rl_env.inatt_env import InattEnv
 
 
 from datetime import datetime
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # Create and wrap the environment
     h_shape = (10, 10, 1024)  # Shape of the hidden state of the lstm network
     history_shape = 20  # Number of past actions to be tracked
-    env = HrmodEnv(args, h_shape=h_shape, history_shape=history_shape, val_dataset=True, random_train=True, cache_dir=checkpoint_path, dynamic_gamma=args.dynamic_gamma)
+    env = InattEnv(args, h_shape=h_shape, history_shape=history_shape, val_dataset=True, random_train=True, cache_dir=checkpoint_path, dynamic_gamma=args.dynamic_gamma)
     env = DummyVecEnv([lambda: env])  # The algorithms require a vectorized environment to run
 
     if args.normalize_env:

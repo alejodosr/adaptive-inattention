@@ -1,6 +1,6 @@
 from pytorch_lightning import Trainer
 import torch
-from models.inatt_models_ptl import HRMobileVOD
+from models.inatt_models_ptl import InattModel
 from models.backbone import SSD, MobileNetV1, MobileVOD
 from config import mobilenetv1_ssd_config
 from pytorch_lightning.callbacks import ModelCheckpoint
@@ -211,7 +211,7 @@ if __name__ == '__main__':
     args.num_classes = int(len(val_dataset._classes_names))
     logging.info(f"Number of classes: {args.num_classes}")
 
-    model = HRMobileVOD(args, logging=logging)
+    model = InattModel(args, logging=logging)
 
     model.set_val_dataset(val_dataset)
     model.set_train_dataset(train_dataset)
