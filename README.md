@@ -62,7 +62,7 @@ or with MobileNetV2 backbone:
 `CUDA_VISIBLE_DEVICES=0 python train_inattentional_model.py --net lstm --datasets /path/to/dataset/ --batch_size 50 --num_epochs 200 --width_mult 1 --cache_path /home/alejo/Downloads/cache --pretrained /path/to/checkpoint/checkpoint.ckpt --freeze_net --crop_prob 0.05 --backbone mobilenetv2`
 
 
-### Train the Inattentional Policy (Reinforcement Learning) ###
+### Train the Inattentional Policy (Reward-Conditional Training) ###
 
 `CUDA_VISIBLE_DEVICES=0 python train_rl_inattentional_policy.py --net lstm --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv`
 
