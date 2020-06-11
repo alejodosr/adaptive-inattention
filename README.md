@@ -73,6 +73,9 @@ or with MobileNetV2 backbone:
 
 ### Evaluate Trained Model (with Inattentional Policy) ###
 
-``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --label_file /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 5 --lambda_0 1.2 --use_cuda True``
+``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 5 --lambda_0 1.2 --use_cuda True``
+
+### Evaluate only MobileNetV1/V2-SSDLite (only Feature extractor) ###
+``CUDA_VISIBLE_DEVICES=0 python evaluate.py --net backbone --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv``
 
 ## Acknowledgement ##
