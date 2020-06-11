@@ -35,6 +35,7 @@ This framework has been validated with Imagent VID 2015 and a custom Multirotor 
 
 If you want to use your custom dataset, YOLO-style annotations can be used and `scripts/get_YOLO_shapes.py` has to be used to generate extra annotations.
 
+## Training ##
 ### Train the Inattentional Model ###
 
 Train the Fature Extractor:
@@ -58,6 +59,7 @@ or with MobileNetV2 backbone:
 
 `CUDA_VISIBLE_DEVICES=0 python train_rl_inattentional_policy.py --net lstm --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv`
 
+## Evaluation ##
 ### Evaluate Trained Model (with Random Policy) ###
 
 `CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy baseline --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv --iter 3 --prob 0.5 --use_cuda True`
@@ -65,3 +67,5 @@ or with MobileNetV2 backbone:
 ### Evaluate Trained Model (with Inattentional Policy) ###
 
 ``CUDA_VISIBLE_DEVICES=0 python evaluate_inattentional_policy.py --net lstm --policy rl_ppo2 --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --label_file /path/to/tags/meta_tags.csv --rl_path /path/to/rl/checkpoint --iter 3 --lambda_0 1.2 --use_cuda True``
+
+## Acknowledgements ##
