@@ -1,9 +1,19 @@
 ## Adaptive Inattentional Framework for Video Object Detection with Reward-Conditional Training #
-This is the original implementation of the article <url_link>
+This is the original implementation of the [article](https://ieeexplore.ieee.org/iel7/6287639/8948470/09130680.pdf)
 
 ![alt text](main_image.png)
 
-Citation bibtex here.
+```
+@article{rodriguez2020adaptive,
+  title={Adaptive Inattentional Framework for Video Object Detection With Reward-Conditional Training},
+  author={Rodriguez-Ramos, Alejandro and Rodriguez-Vazquez, Javier and Sampedro, Carlos and Campoy, Pascual},
+  journal={IEEE Access},
+  volume={8},
+  pages={124451--124466},
+  year={2020},
+  publisher={IEEE}
+}
+```
 
 ### Abstract ###
 Recent object detection studies have been focused on video sequences, mostly due to the increasing demand of industrial applications. Although single-image architectures achieve remarkable results in terms of accuracy, they do not take advantage of particular properties of the video sequences and usually require high parallel computational resources, such as desktop GPUs. In this work, an inattentional framework is proposed, where the object context in video frames is dynamically reused in order to reduce the computation overhead. The context features corresponding to keyframes are fused into a synthetic feature map, which is further refined using temporal aggregation with ConvLSTMs. Furthermore, an inattentional policy has been learned to adaptively balance the accuracy and the amount of context reused. The inattentional policy has been learned under the reinforcement learning paradigm, and using our novel reward-conditional training scheme, which allows for policy training over a whole distribution of reward functions and enables the selection of a unique reward function at inference time. Our framework shows outstanding results on platforms with reduced parallelization capabilities, such as CPUs, achieving an average latency reduction up to 2.09x, and obtaining FPS rates similar to their equivalent GPU platform, at the cost of a 0.09 mAP reduction.
@@ -79,3 +89,7 @@ Evaluate only MobileNetV1/V2-SSDLite (only Feature extractor)
 ``CUDA_VISIBLE_DEVICES=0 python evaluate.py --net backbone --dataset /path/to/dataset/ --trained_model /path/to/checkpoint/checkpoint.ckpt --label_file /path/to/labels/vid-model-labels.txt --tags_csv /path/to/tags/meta_tags.csv``
 
 ## Acknowledgement ##
+This work was supported in part by the Spanish Ministry of Economy and Competitivity through the project (Complex Coordinated
+Inspection and Security Missions by UAVs in cooperation with UGV) under Grant RTI2018-100847-B-C21, in part by the MIT
+International Science and Technology Initiatives (MISTI)-Spain through the project (Drone Autonomy), and in part by the Mohamed Bin
+Zayed International Robotics Challenge (MBZIRC) in the year 2020 (MBZIRC 2020 competition).
