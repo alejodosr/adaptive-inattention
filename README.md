@@ -40,10 +40,12 @@ Recent object detection studies have been focused on video sequences, mostly due
 ### Datasets ###
 
 This framework has been validated with Imagent VID 2015 and a custom Multirotor Aerial Vehicles (MAV-VID) dataset:
-- Imagenet VID 2015 dataset can be downloaded [here](http://bvisionweb1.cs.unc.edu/ILSVRC2017/download-videos-1p39.php). Once downloaded, use these scripts, in this order, `scripts/get_list.py` and `scripts/get_seq_list.py` (modify the path inside the script).
+- Imagenet VID 2015 dataset can be downloaded [here](http://bvisionweb1.cs.unc.edu/ILSVRC2017/download-videos-1p39.php).
 - MAV-VID dataset can be downloaded [here](https://bitbucket.org/alejodosr/mav-vid-dataset). The MAV-VID dataset has been annotated with [YOLO annotations style](https://github.com/AlexeyAB/Yolo_mark).
 
-If you want to use your custom dataset, YOLO-style annotations can be used and `scripts/get_YOLO_shapes.py` has to be used to generate extra annotations.
+Important: Once downloaded any dataset, use these scripts, in this order, `scripts/get_list.py` and `scripts/get_seq_list.py` (modify the path inside the script).
+
+(If you want to use your custom dataset, YOLO-style annotations can be used and `scripts/get_YOLO_shapes.py` has to be used to generate extra annotations)
 
 ### Additional notes ###
 Every script has several options and parameters. These are some important ones:
