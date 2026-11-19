@@ -1,6 +1,12 @@
 ## Adaptive Inattentional Framework for Video Object Detection with Reward-Conditional Training #
 This is the original implementation of the [article](https://ieeexplore.ieee.org/iel7/6287639/8948470/09130680.pdf)
 
+> **New dataset link!** The MAV-VID dataset is now available at
+> **https://bitbucket.org/alejodosr/mav-vid-dataset/src/master/**
+>
+> The dataset is released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
+> If you use, share or adapt it, you must give credit by citing the paper below.
+
 ![alt text](main_image.png)
 
 ```
@@ -41,7 +47,9 @@ Recent object detection studies have been focused on video sequences, mostly due
 
 This framework has been validated with Imagent VID 2015 and a custom Multirotor Aerial Vehicles (MAV-VID) dataset:
 - Imagenet VID 2015 dataset can be downloaded [here](http://bvisionweb1.cs.unc.edu/ILSVRC2017/download-videos-1p39.php).
-- MAV-VID dataset can be downloaded [here](https://bitbucket.org/alejodosr/mav-vid-dataset). The MAV-VID dataset has been annotated with [YOLO annotations style](https://github.com/AlexeyAB/Yolo_mark).
+- MAV-VID dataset can be downloaded from its **new location** [here](https://bitbucket.org/alejodosr/mav-vid-dataset/src/master/). The MAV-VID dataset has been annotated with [YOLO annotations style](https://github.com/AlexeyAB/Yolo_mark).
+
+**MAV-VID license and citation:** the MAV-VID dataset is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You are free to use, share and adapt it, including commercially, as long as you give appropriate credit. The required credit is a citation of the paper above (see the BibTeX entry at the top of this page).
 
 Important: Once downloaded any dataset, use these scripts, in this order, `scripts/get_list.py` and `scripts/get_seq_list.py` (modify the path inside the script).
 
