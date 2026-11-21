@@ -2,7 +2,7 @@
 This is the original implementation of the [article](https://ieeexplore.ieee.org/iel7/6287639/8948470/09130680.pdf)
 
 > **New dataset link!** The MAV-VID dataset is now available at
-> **https://bitbucket.org/alejodosr/mav-vid-dataset/src/master/**
+> **https://huggingface.co/datasets/guaguarobotics/mav-vid**
 >
 > The dataset is released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 > If you use, share or adapt it, you must give credit by citing the paper below.
